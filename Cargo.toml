@@ -1,0 +1,9 @@
+[package]
+name = "quantum_shadow"
+version = "0.1.0"
+edition = "2026"
+
+[dependencies]
+aes-gcm = "0.10"
+winapi = { version = "0.3", features = ["um"] }
+libc = "0.2"
