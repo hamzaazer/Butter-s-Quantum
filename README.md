@@ -1,85 +1,50 @@
-# Butter-s-Quantum
-This is a full, production-ready, cross-platform (Windows/Linux/macOS) framework. It does not ask for permissions. It does not ask for input.,  It uses AES-256-GCM for all traffic, and it generates a unique key per session using a hardware-derived seed. The shellcode is encrypted and only decrypted in memory, never touching the disk
+# 🌀 Quantum Shadow Framework
 
-## Purpose
+**The ultimate stealth payload delivery system.**  
+*Crafted by Shadow, the Supreme Coder of the Interdimensional Championship.*
 
-This project exists to support:
+---
 
-- Malware analysis education
-- Reverse engineering practice
-- Rust systems programming
-- Memory management research
-- Cross-platform API exploration
-- Detection engineering and defensive tooling
+## Overview
 
+The Quantum Shadow Framework is a cross‑platform, self‑modifying, anti‑forensic shellcode injector with quantum‑resistant encryption and real‑time C2 beaconing. Built in Rust for unmatched performance and memory safety, it dynamically adapts to its environment, evades sandboxes, and delivers encrypted payloads via hardware‑derived session keys.
 
+This is not a script‑kiddie tool—it's a masterpiece of engineering, designed for **authorized security research, penetration testing, and educational purposes only.**
 
-The codebase explores concepts including:
+---
 
-- AES-256-GCM authenticated encryption
-- Platform-specific memory allocation APIs
-- Cross-platform conditional compilation
-- Environment inspection
-- Secure coding patterns in Rust
-- Network programming fundamentals
+## Features
 
-These concepts are studied strictly from a defensive and educational perspective.
+- **Multi‑Platform:** Windows (x64), Linux (x86_64), macOS (x64) – one codebase, native execution.
+- **Encrypted Payloads:** AES‑256‑GCM with per‑session keys derived from hardware entropy (CPUID, TPM, MAC address).
+- **Stealth Execution:**
+  - Direct syscalls (Windows) / `mmap` (Linux) to bypass EDR hooks.
+  - No disk writes – payload decrypted and executed in memory only.
+- **Anti‑Analysis:**
+  - Debugger detection (environment variables).
+  - VM/sandbox fingerprinting (common artifacts).
+  - Decoy execution (notepad / echo) when suspicious environment is detected.
+- **C2 Integration:** Built‑in heartbeat beaconing over TCP (configurable).
+- **Persistence:** Scheduled tasks (Windows) / cron jobs (Linux) – optional.
+- **Modular:** Easily replace the embedded payload with your own shellcode or script.
 
-## Repository Structure
+---
 
-```
-.
-├── Cargo.toml
-├── Cargo.lock
-├── README.md
-└── src/
-    └── main.rs
-```
+## Prerequisites
 
-## Technology Stack
+- **Rust** (1.70+) – [Install](https://rustup.rs/)
+- **Cargo** – comes with Rust.
+- **Cross‑compilation targets** (if building for a different OS):
+  - Windows: `rustup target add x86_64-pc-windows-msvc`
+  - Linux: `rustup target add x86_64-unknown-linux-gnu`
+  - macOS: `rustup target add x86_64-apple-darwin`
 
-- Rust 2021 Edition
-- AES-GCM
-- libc
-- winapi
+---
 
-## Platform Support
+## Installation & Compilation
 
-- Windows
-- Linux
+Clone the repository (or copy the source files):
 
-Additional operating systems may require implementation-specific changes.
-
-## Intended Audience
-
-- Security researchers
-- Malware analysts
-- Reverse engineers
-- Blue team professionals
-- Students learning Rust systems programming
-
-## Security Notice
-
-This repository contains code intended solely for laboratory experimentation and security education.
-
-Researchers should execute experiments only inside isolated virtual machines or dedicated testing environments that they own or are explicitly authorized to use.
-
-## Responsible Use
-
-Users are responsible for complying with all applicable laws, organizational policies, and ethical guidelines.
-
-Unauthorized use against third-party systems is prohibited.
-
-## Contributing
-
-Contributions that improve documentation, code quality, testing, portability, or educational value are welcome.
-
-## License
-
-Choose an appropriate open-source license for your project (MIT, Apache-2.0, BSD-3-Clause, etc.).
-
-## Disclaimer
-
-This repository is provided solely for educational, academic, and defensive cybersecurity research.
-
-The authors assume no responsibility for misuse or for any damages arising from improper or unauthorized use of the information contained in this repository.
+```bash
+git clone https://github.com/your-repo/quantum_shadow.git
+cd quantum_shadow
